@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import SafeIcon from '../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
 
-const { FiSun, FiClock, FiHeart, FiStar, FiArrowRight } = FiIcons;
+const { FiSun, FiClock, FiHeart, FiStar, FiArrowRight, FiDroplet } = FiIcons;
 
 const ProgrammesOverview = () => {
   const [ref, inView] = useInView({
@@ -19,16 +19,24 @@ const ProgrammesOverview = () => {
       title: 'Half-Day Programme',
       time: '7:30 AM - 12:00 PM',
       description: 'Perfect for younger learners',
-      features: ['Morning snack included', 'Core learning activities', 'Social development'],
+      features: [
+        'Morning snack included',
+        'Core learning activities',
+        'Social development'
+      ],
       color: 'bg-yellow-50 border-yellow-200',
       iconColor: 'text-yellow-600',
     },
     {
       icon: FiClock,
       title: 'Full-Day Programme',
-      time: '7:30 AM - 4:00 PM',
+      time: 'Mon-Thu: 7:30 AM - 4:00 PM, Fri: 7:30 AM - 12:00 PM',
       description: 'Comprehensive care & education',
-      features: ['All meals included', 'Rest time', 'Extended learning'],
+      features: [
+        'All meals included',
+        'Rest time',
+        'Extended learning'
+      ],
       color: 'bg-blue-50 border-blue-200',
       iconColor: 'text-blue-600',
     },
@@ -37,7 +45,10 @@ const ProgrammesOverview = () => {
       title: 'Therapeutic Services',
       time: 'Flexible scheduling',
       description: 'Specialised therapeutic support',
-      features: ['Speech therapy', 'Occupational therapy', 'Aquatic therapy'],
+      features: [
+        'Speech therapy',
+        'Occupational therapy'
+      ],
       color: 'bg-green-50 border-green-200',
       iconColor: 'text-green-600',
     },
@@ -46,9 +57,26 @@ const ProgrammesOverview = () => {
       title: 'Special Support',
       time: 'Integrated daily',
       description: 'Individual Education Plans',
-      features: ['Multisensory approaches', 'Adaptive technologies', 'Personal growth'],
+      features: [
+        'Multisensory approaches',
+        'Adaptive technologies',
+        'Personal growth'
+      ],
       color: 'bg-purple-50 border-purple-200',
       iconColor: 'text-purple-600',
+    },
+    {
+      icon: FiDroplet,
+      title: 'Additional Services',
+      time: 'Available on request',
+      description: 'Specialized therapeutic offerings',
+      features: [
+        'Aquatic',
+        'Equine-assisted',
+        'Culinary'
+      ],
+      color: 'bg-teal-50 border-teal-200',
+      iconColor: 'text-teal-600',
     },
   ];
 
@@ -70,7 +98,7 @@ const ProgrammesOverview = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {programmes.map((programme, index) => (
             <motion.div
               key={index}

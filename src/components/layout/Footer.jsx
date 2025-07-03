@@ -20,7 +20,6 @@ const Footer = () => {
 
     try {
       const result = await sendNewsletterEmail(email);
-      
       if (result.success) {
         setEmail('');
         setSubmitStatus({
@@ -38,7 +37,7 @@ const Footer = () => {
     }
 
     setIsSubmitting(false);
-    
+
     // Clear status message after 5 seconds
     setTimeout(() => {
       setSubmitStatus({ type: '', message: '' });
@@ -152,17 +151,18 @@ const Footer = () => {
           {/* Operating Hours */}
           <div>
             <h4 className="text-lg font-poppins font-semibold mb-4">Operating Hours</h4>
-            <div className="space-y-2">
-              <div className="flex items-center space-x-3">
-                <SafeIcon icon={FiClock} className="h-5 w-5 text-golden" />
+            <div className="space-y-3">
+              <div className="flex items-start space-x-3">
+                <SafeIcon icon={FiClock} className="h-5 w-5 text-golden flex-shrink-0 mt-0.5" />
                 <div className="text-gray-300 text-sm">
-                  <p className="font-medium">Monday - Friday</p>
-                  <p>7:30 AM - 4:00 PM</p>
+                  <p className="font-medium text-golden">Full-day Programme</p>
+                  <p>Mon-Thu: 7:30 AM - 4:00 PM</p>
+                  <p>Fri: 7:30 AM - 12:00 PM</p>
                 </div>
               </div>
               <div className="text-gray-300 text-sm ml-8">
-                <p className="font-medium">Half-Day Programme</p>
-                <p>7:30 AM - 12:00 PM</p>
+                <p className="font-medium text-golden">Half-day Programme</p>
+                <p>Mon-Fri: 7:30 AM - 12:00 PM</p>
               </div>
             </div>
           </div>
@@ -175,7 +175,7 @@ const Footer = () => {
             <p className="text-gray-300 text-sm mb-4">
               Subscribe to our newsletter for the latest news and events
             </p>
-            
+
             {/* Status Message */}
             {submitStatus.message && (
               <div className={`mb-4 p-3 rounded-lg text-sm ${
@@ -220,9 +220,9 @@ const Footer = () => {
             <a href="#" className="hover:text-golden transition-colors duration-200">
               Terms of Service
             </a>
-            <a
-              href="https://www.primehost.co.za/"
-              target="_blank"
+            <a 
+              href="https://www.primehost.co.za/" 
+              target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-golden transition-colors duration-200"
             >

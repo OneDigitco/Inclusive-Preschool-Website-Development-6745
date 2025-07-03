@@ -4,7 +4,7 @@ import {useInView} from 'react-intersection-observer';
 import SafeIcon from '../common/SafeIcon';
 import * as FiIcons from 'react-icons/fi';
 
-const {FiMapPin, FiPhone, FiMail, FiClock, FiMessageCircle} = FiIcons;
+const {FiMapPin,FiPhone,FiMail,FiClock,FiMessageCircle} = FiIcons;
 
 const ContactInfo = () => {
   const [ref, inView] = useInView({
@@ -45,12 +45,16 @@ const ContactInfo = () => {
 
   const operatingHours = [
     {
-      day: 'Monday - Friday',
-      hours: '7:30 AM - 4:00 PM'
+      day: 'Full-day Programme',
+      hours: 'Mon-Thu: 7:30 AM - 4:00 PM'
     },
     {
-      day: 'Half-Day Programme',
-      hours: '7:30 AM - 12:00 PM'
+      day: '',
+      hours: 'Fri: 7:30 AM - 12:00 PM'
+    },
+    {
+      day: 'Half-day Programme',
+      hours: 'Mon-Fri: 7:30 AM - 12:00 PM'
     },
     {
       day: 'Saturday - Sunday',
@@ -124,9 +128,11 @@ const ContactInfo = () => {
             </h3>
             <div className="space-y-4">
               {operatingHours.map((schedule, index) => (
-                <div key={index} className="flex justify-between items-center py-2 border-b border-gray-600 last:border-b-0">
-                  <span className="text-gray-200">{schedule.day}</span>
-                  <span className="text-golden font-semibold">{schedule.hours}</span>
+                <div key={index} className="py-2 border-b border-gray-600 last:border-b-0">
+                  {schedule.day && (
+                    <span className="text-golden font-semibold block">{schedule.day}</span>
+                  )}
+                  <span className="text-gray-200">{schedule.hours}</span>
                 </div>
               ))}
             </div>
